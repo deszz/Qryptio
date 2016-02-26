@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Qryptio.Pages.AboutPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Qryptio.Pages"
+             xmlns:theme="clr-namespace:Qryptio.Theme"
+             xmlns:wpf="clr-namespace:Qryptio.Wpf"
+             xmlns:prop="clr-namespace:Qryptio.Properties"
+             mc:Ignorable="d" 
+             Background="{StaticResource DefaultPageBackground}"
+             d:DesignHeight="{StaticResource PageHeight}" 
+             d:DesignWidth="{StaticResource PageWidth}">
+
+    <UserControl.Resources>
+        <wpf:DoubleToGridLengthConverter x:Key="DoubleToGridLengthConverter"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="{Binding Source={StaticResource ControlBarHeight}, Converter={StaticResource DoubleToGridLengthConverter}, Mode=OneWay}" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" 
+                    Margin="32">
+            <Image Source="{Binding Logo}" 
+                   Width="152" 
+                   Height="152" 
+                   Margin="32"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+            <TextBlock Text="{Binding Name}"
+                       FontSize="32"
+                       Foreground="Black"
+                       FontFamily="{StaticResource MainFontLight}"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Version}" 
+                       Margin="0, 5, 0, 0"
+                       FontSize="14"
+                       Foreground="{StaticResource GreyBrush}"
+                       FontFamily="{StaticResource MainFontLight}"
+                       HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Margin="24">
+            <TextBlock HorizontalAlignment="Center"
+                       FontFamily="{StaticResource MainFontLight}">
+                <Hyperlink NavigateUri="{Binding Link}" 
+                           Command="{Binding GoToSiteCommand}">
+                           <ContentControl Content="{x:Static prop:Resources.AboutPage_OpenGithubPage}"/>
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+        
+        <Grid Grid.Row="2">
+            <Button Content="{x:Static prop:Resources.Settings_BackButton}" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=BackCommand}" 
+                    Style="{StaticResource ButtonStyle}"
+                    IsCancel="True"/>
+        </Grid>
+    </Grid>
+    
+</UserControl>

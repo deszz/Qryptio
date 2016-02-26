@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 32 32"
+   style="fill: rgb(102, 102, 102);"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="ui_info.svg"
+   inkscape:export-filename="C:\Users\sokol\Разработка\Qryptio\Images\ui_info.png"
+   inkscape:export-xdpi="180"
+   inkscape:export-ydpi="180">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="7.375"
+     inkscape:cx="-4.2711864"
+     inkscape:cy="16"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     d="M 16,0 C 7.178022,0 0,7.178022 0,16 0,24.821978 7.178022,32 16,32 24.821978,32 32,24.821978 32,16 32,7.178022 24.821978,0 16,0 Z m 0,2.4615385 C 23.491663,2.4615385 29.538462,8.5083361 29.538462,16 29.538462,23.491664 23.491663,29.538462 16,29.538462 8.508337,29.538462 2.4615385,23.491664 2.4615385,16 2.4615385,8.5083361 8.508337,2.4615385 16,2.4615385 Z m -1.23077,6.1538461 0,2.4615384 2.46154,0 0,-2.4615384 -2.46154,0 z m 0,4.9230774 0,9.846153 2.46154,0 0,-9.846153 -2.46154,0 z"
+     id="path4"
+     style="fill:#000000;fill-opacity:1"
+     inkscape:connector-curvature="0" />
+</svg>

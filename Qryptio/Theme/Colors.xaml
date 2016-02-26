@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Qryptio.Theme">
+
+    <Color x:Key="MainColor">#3CACE2</Color>
+
+    <Color x:Key="GreyColor">#FFAFAFAF</Color>
+    <Color x:Key="RedColor">#FFE84B4B</Color>
+    <Color x:Key="YellowColor">#FFFDE060</Color>
+    <Color x:Key="OrangeColor">#FFFC7600</Color>
+
+    <SolidColorBrush x:Key="MainBrush" Color="{StaticResource MainColor}"/>
+    <SolidColorBrush x:Key="DarkMainBrush" 
+                     Color="{StaticResource MainColor}"
+                     local:ColorBrushEx.DimBy="0.3"/>
+    <SolidColorBrush x:Key="LightMainBrush" 
+                     Color="{StaticResource MainColor}"
+                     local:ColorBrushEx.LightenBy="0.3"/>
+
+    <SolidColorBrush x:Key="GreyBrush" Color="{StaticResource GreyColor}"/>
+    <SolidColorBrush x:Key="DarkGreyBrush" 
+                     Color="{StaticResource GreyColor}" 
+                     local:ColorBrushEx.DimBy="0.4"/>
+    <SolidColorBrush x:Key="LightGreyBrush" 
+                     Color="{StaticResource GreyColor}" 
+                     local:ColorBrushEx.LightenBy="0.4"/>
+    <SolidColorBrush x:Key="RedBrush" Color="{StaticResource RedColor}"/>
+    <SolidColorBrush x:Key="YellowBrush" Color="{StaticResource YellowColor}"/>
+    <SolidColorBrush x:Key="DarkYellowBrush" Color="#DAA520"/>
+    <SolidColorBrush x:Key="OrangeBrush" Color="{StaticResource OrangeColor}"/>
+
+    <SolidColorBrush x:Key="DefaultPageBackground" Color="White"/>
+
+</ResourceDictionary>

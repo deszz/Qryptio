@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="Qryptio.Pages.FilePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Qryptio.Pages"
+             xmlns:theme="clr-namespace:Qryptio.Theme"
+             xmlns:controls="clr-namespace:Qryptio.Controls"
+             xmlns:wpf="clr-namespace:Qryptio.Wpf"
+             xmlns:prop="clr-namespace:Qryptio.Properties"
+             mc:Ignorable="d" 
+             Background="{StaticResource DefaultPageBackground}"
+             d:DesignHeight="{StaticResource PageHeight}" 
+             d:DesignWidth="{StaticResource PageWidth}"
+             Focusable="True"
+             MouseDown="PageMouseDownHandler">
+
+    <UserControl.Resources>
+        <wpf:DoubleToGridLengthConverter x:Key="DoubleToGridLengthConverter"/>
+        <wpf:BoolToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <wpf:BoolToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"
+                                       FalseValue="Visible"
+                                       TrueValue="Collapsed"/>
+        <wpf:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="{Binding Source={StaticResource ControlBarHeight}, Converter={StaticResource DoubleToGridLengthConverter}, Mode=OneWay}" />
+            <RowDefinition Height="{Binding Source={StaticResource ControlBarHeight}, Converter={StaticResource DoubleToGridLengthConverter}, Mode=OneWay}" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Width="220"
+                   Height="220"
+                   Source="{Binding FileIcon}"/>
+            <TextBlock x:Name="fileNameLabel"
+                       FontFamily="{StaticResource MainFont}"
+                       FontSize="24"
+                       Foreground="{StaticResource GreyBrush}"
+                       TextAlignment="Center"
+                       TextTrimming="CharacterEllipsis"
+                       TextWrapping="NoWrap"
+                       Margin="20, 0, 20, 0"
+                       VerticalAlignment="Center"
+                       Text="{Binding FileName}"/>
+            <TextBlock x:Name="fileDescriptionLabel"
+                       FontFamily="{StaticResource MainFontLight}"
+                       FontSize="12"
+                       Foreground="{StaticResource GreyBrush}"
+                       TextAlignment="Center"
+                       TextTrimming="None"
+                       Text="{Binding FileDescription}"/>
+        </StackPanel>
+        
+        <ProgressBar Grid.Row="1"
+                     Value="{Binding Path=Progress, Mode=OneWay}" 
+                     Style="{StaticResource ProgressBarStyle}"/>
+        
+        <controls:QryptioPasswordBox x:Name="passwordBox"
+                                     Grid.Row="2"
+                                     PasswordBoxStyle="{StaticResource PasswordBoxStyle}"
+                                     HintText="{x:Static prop:Resources.FilePage_PasswordHint}"
+                                     HintFont="{StaticResource MainFontLight}"
+                                     PasswordChanged="PasswordChangedHandler"/>
+        
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" 
+                    IsEnabled="{Binding OperationCancelled, Converter={StaticResource InverseBooleanConverter}}"
+                    Content="{x:Static prop:Resources.FilePage_BackButton}" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=BackCommand}" 
+                    Style="{StaticResource ButtonStyle}"
+                    IsCancel="True"/>
+
+            <Button Grid.Column="1" 
+                    IsEnabled="{Binding OperationActive, Converter={StaticResource InverseBooleanConverter}}"
+                    Content="{x:Static prop:Resources.FilePage_Encrypt}" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=EncryptCommand}" 
+                    Style="{StaticResource ButtonStyle}"/>
+            <Button Grid.Column="1" 
+                    IsEnabled="{Binding OperationActive, Converter={StaticResource InverseBooleanConverter}}"
+                    Visibility="{Binding QrFileSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    Content="{x:Static prop:Resources.FilePage_Decrypt}" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    Command="{Binding Path=DecryptCommand}" 
+                    Style="{StaticResource ButtonStyle}"/>
+        </Grid>
+    </Grid>
+    
+</UserControl>
